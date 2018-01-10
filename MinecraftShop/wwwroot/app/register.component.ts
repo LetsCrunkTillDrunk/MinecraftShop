@@ -10,17 +10,16 @@ import { User } from './user.models';
 
 export class RegisterComponent  {
 
-    currentUser: User = null;
+    currentUser: User = new User();
     errorMessage:string = null;
 
     constructor(private service: UserService) { }
 
-    addTestData(event: Event): void {
+    register(event: Event): void {
         event.preventDefault();
 
         if (!this.currentUser)
             return;
-
         this.service.addUser(this.currentUser)
             .subscribe((user: User) => this.currentUser = user, error => this.errorMessage = <any>error);
     }

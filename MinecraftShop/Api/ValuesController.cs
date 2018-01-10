@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MinecraftShop.Api
 {
-    [Route("api/user")]
+    [Route("api/something")]
     public class ValuesController : Controller
     {
         // GET: api/<controller>

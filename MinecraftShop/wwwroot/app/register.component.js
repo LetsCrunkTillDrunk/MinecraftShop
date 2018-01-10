@@ -11,13 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_services_1 = require("./user.services");
+var user_models_1 = require("./user.models");
 var RegisterComponent = /** @class */ (function () {
     function RegisterComponent(service) {
         this.service = service;
-        this.currentUser = null;
+        this.currentUser = new user_models_1.User();
         this.errorMessage = null;
     }
-    RegisterComponent.prototype.addTestData = function (event) {
+    RegisterComponent.prototype.register = function (event) {
         var _this = this;
         event.preventDefault();
         if (!this.currentUser)

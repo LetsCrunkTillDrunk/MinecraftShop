@@ -1,17 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Login</label>
+            <div class="col-sm-9">
+                <input type="text" id="login" name = "login" placeholder="Login" class="form-control" [(ngModel)] ="currentUser.login">
+            </div>
+        
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <br>
+            <div class="col-sm-9">
+                <input type="text" id="password" name="password" placeholder="Password" class="form-control" [(ngModel)] ="currentUser.password">
+            </div>
+        <br>
+        <br>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" id="email" name ="email"class="form-control"  placeholder="E-mail" [(ngModel)]="currentUser.email">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-3">
+                <button class="btn btn-primary " type="submit" (click)="register($event)">Register</button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -12,29 +12,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Observable_1 = require("rxjs/Observable");
-var user_models_1 = require("./user.models");
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
         this.url = 'api/user';
     }
-    UserService.prototype.getUser = function () {
-        return this.http.get(this.url)
-            .map(function (resp) { return resp.json(); })
-            .catch(this.handleError);
+    UserService.prototype.getAllUsers = function () {
+        return this.http.get(this.url).map(function (resp) { return resp.json(); }).catch(this.handleError);
     };
-    UserService.prototype.addUser = function (user) {
-        var headers = new http_1.Headers({
-            'Content-Type': 'application/json'
-        });
-        return this.http
-            .post(this.url, JSON.stringify(user_models_1.User), { headers: headers })
-            .map(function (resp) { return resp.json(); })
-            .catch(this.handleError);
-    };
-    //login(user: User): Observable<User> {
-    //    return
+    //getUser(user: User): Observable<User> {
+    //    let headers = new Headers(
+    //        {
+    //            'Content-Type': 'application/json'
+    //        });
+    //    return this.http.post(this.url, JSON.stringify(User), {headers:headers})
+    //        .map((resp: Response) => resp.json())
+    //        .catch(this.handleError);
     //}
+    UserService.prototype.addUser = function (user) {
+        return this.http
+            .post(this.url, user)
+            .map(function (resp) { return resp.json(); })
+            .catch(this.handleError);
+    };
     UserService.prototype.handleError = function (error) {
         var errMsg;
         if (error instanceof http_1.Response) {

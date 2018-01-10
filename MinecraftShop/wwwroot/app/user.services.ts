@@ -8,30 +8,34 @@ import { User } from './user.models';
 @Injectable()
 export class UserService {
     private url: string = 'api/user';
-
+    private result: string;
     constructor(private http: Http) { }
 
-    getUser(): Observable<User> {
-        return this.http.get(this.url)
-            .map((resp: Response) => resp.json())
-            .catch(this.handleError);
+    getAllUsers(): Observable<User> {
+        return this.http.get(this.url).map((resp: Response) => resp.json()).catch(this.handleError);
     }
+
+    //getUser(user: User): Observable<User> {
+    //    let headers = new Headers(
+    //        {
+    //            'Content-Type': 'application/json'
+    //        });
+    //    return this.http.post(this.url, JSON.stringify(User), {headers:headers})
+    //        .map((resp: Response) => resp.json())
+    //        .catch(this.handleError);
+    //}
 
     addUser(user: User): Observable<User> {
-        let headers = new Headers(
-            {
-                'Content-Type': 'application/json'
-            });
+
 
         return this.http
-            .post(this.url, JSON.stringify(User), { headers: headers })
+            .post(this.url, user)
             .map((resp: Response) => resp.json())
             .catch(this.handleError);
+
     }
 
-    //login(user: User): Observable<User> {
-    //    return
-    //}
+    
 
     private handleError(error: Response | any) {
         let errMsg: string;

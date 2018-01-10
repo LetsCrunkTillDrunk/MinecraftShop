@@ -6,9 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\app\admin.component.ts" />
     <Content Remove="wwwroot\app\app.routing.ts" />
     <Content Remove="wwwroot\app\login.component.ts" />
     <Content Remove="wwwroot\app\main.component.ts" />
+    <Content Remove="wwwroot\app\panel.component.ts" />
     <Content Remove="wwwroot\app\register.component.ts" />
     <Content Remove="wwwroot\app\rxjs-operators.ts" />
     <Content Remove="wwwroot\app\user.models.ts" />
@@ -35,9 +37,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\app\admin.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.routing.ts" />
     <TypeScriptCompile Include="wwwroot\app\main.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\login.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\panel.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\register.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\rxjs-operators.ts" />
     <TypeScriptCompile Include="wwwroot\app\user.models.ts" />

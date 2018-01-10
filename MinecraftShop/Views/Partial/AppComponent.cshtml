@@ -1,5 +1,5 @@
 ﻿
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" >
     <div class="container">
         <div class="navbar-header" (click)="setTitle('Home - AngularSpa')">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -13,13 +13,16 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="nav-link" (click)="setTitle('Home - AngularSpa')" routerLink="/home">Home</a>
+                    <a class="nav-link"  routerLink="/home">Home</a>
                 </li>
                 <li>
-                    <a class="nav-link" (click)="setTitle('About - AngularSpa')" routerLink="/login">Login</a>
+                    <a class="nav-link"  routerLink="/login">Login</a>
                 </li>
                 <li>
-                    <a class="nav-link" (click)="setTitle('Contact - AngularSpa')" routerLink="/register">Register</a>
+                    <a class="nav-link"  routerLink="/register">Register</a>
+                </li>
+                <li>
+                    <a class="nav-link" (click) ="changeNoAdmin()" routerLink="/admin">AdminPanel</a>
                 </li>
             </ul>
         </div>

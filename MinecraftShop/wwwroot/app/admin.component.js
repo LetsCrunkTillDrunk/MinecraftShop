@@ -11,26 +11,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(_location) {
-        this.angularClientSideData = 'Angular';
+var AdminComponent = /** @class */ (function () {
+    function AdminComponent(_location, cfr) {
+        this.isAdmin = false;
         this.location = _location;
+        this.factory = cfr;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    AdminComponent.prototype.ngOnInit = function () {
     };
-    AppComponent.prototype.changeNoAdmin = function () {
-        this.noAdmin = !(this.noAdmin);
+    AdminComponent.prototype.change = function () {
+        this.isAdmin = !this.isAdmin;
     };
-    AppComponent.prototype.setTitle = function () {
-    };
-    AppComponent = __decorate([
+    AdminComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: '/partial/appComponent'
+            selector: 'admin',
+            templateUrl: '/home/adminComponent'
         }),
-        __metadata("design:paramtypes", [common_1.Location])
-    ], AppComponent);
-    return AppComponent;
+        __metadata("design:paramtypes", [common_1.Location, core_1.ComponentFactoryResolver])
+    ], AdminComponent);
+    return AdminComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AdminComponent = AdminComponent;
+//# sourceMappingURL=admin.component.js.map

@@ -24,5 +24,10 @@ namespace MinecraftShop.Controllers
         {
             return PartialView();
         }
+
+        public IActionResult PanelComponent()
+        {
+            return PartialView();
+        }
     }
 }
