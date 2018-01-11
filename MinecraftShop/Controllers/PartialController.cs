@@ -29,5 +29,15 @@ namespace MinecraftShop.Controllers
         {
             return PartialView();
         }
+
+        public IActionResult BlankComponent()
+        {
+            return PartialView();
+        }
+
+        public IActionResult UserListComponent()
+        {
+            return PartialView();
+        }
     }
 }

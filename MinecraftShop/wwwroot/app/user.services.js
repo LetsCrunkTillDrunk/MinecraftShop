@@ -15,25 +15,39 @@ var Observable_1 = require("rxjs/Observable");
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
-        this.url = 'api/user';
+        this.url = 'api/user/';
     }
     UserService.prototype.getAllUsers = function () {
-        return this.http.get(this.url).map(function (resp) { return resp.json(); }).catch(this.handleError);
+        return this.http.get(this.url)
+            .map(function (resp) { return resp.json(); })
+            .catch(this.handleError);
     };
-    //getUser(user: User): Observable<User> {
-    //    let headers = new Headers(
-    //        {
-    //            'Content-Type': 'application/json'
-    //        });
-    //    return this.http.post(this.url, JSON.stringify(User), {headers:headers})
-    //        .map((resp: Response) => resp.json())
-    //        .catch(this.handleError);
-    //}
+    UserService.prototype.getById = function (id) {
+        return this.http.get(this.url + id)
+            .map(function (resp) { return resp.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.getByRole = function (role) {
+        return this.http.get(this.url + role)
+            .map(function (resp) { return resp.json(); })
+            .catch(this.handleError);
+    };
     UserService.prototype.addUser = function (user) {
         return this.http
             .post(this.url, user)
             .map(function (resp) { return resp.json(); })
             .catch(this.handleError);
+    };
+    UserService.prototype.updateUser = function (user) {
+        return this.http.post(this.url + user.id, user)
+            .map(function (resp) { return resp.json(); })
+            .catch(this.handleError);
+    };
+    UserService.prototype.deleteUser = function (id) {
+        console.log(this.url + id);
+        return this.http.delete(this.url + id);
+        //.map((resp: Response) => resp.json())
+        //.catch(this.handleError);
     };
     UserService.prototype.handleError = function (error) {
         var errMsg;

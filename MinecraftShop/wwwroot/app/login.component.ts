@@ -9,8 +9,17 @@ import { User } from './user.models';
     })
 
 export class LoginComponent  {
-    user: User = null;
+    currentUser: User = null;
     errorMessage: string;
 
-    constructor(private userService: UserService) { }
+    constructor(private service: UserService) { }
+
+    login(event: Event): void {
+        event.preventDefault();
+
+        if (!this.currentUser)
+            return;
+        this.service.addUser(this.currentUser)
+            .subscribe((data: User) => this.currentUser = data, error => this.errorMessage = <any>error);
+    }
 }

@@ -8,7 +8,7 @@ import { Location } from "@angular/common";
 })
 export class AppComponent implements OnInit {
 
-    noAdmin: boolean;
+    public isAdmin: boolean = false;
     location: Location;
     public constructor(_location: Location) { this.location = _location;}
 
@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
 
     angularClientSideData = 'Angular';
 
-    public changeNoAdmin() {
-        this.noAdmin = !(this.noAdmin);
+    public changeAdmin() {
+        this.isAdmin = !(this.isAdmin);
         
     }
 

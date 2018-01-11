@@ -10,28 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var common_1 = require("@angular/common");
-var AppComponent = /** @class */ (function () {
-    function AppComponent(_location) {
-        this.isAdmin = false;
-        this.angularClientSideData = 'Angular';
-        this.location = _location;
+var router_1 = require("@angular/router");
+var GuardService = /** @class */ (function () {
+    function GuardService(router) {
+        this.router = router;
     }
-    AppComponent.prototype.ngOnInit = function () {
+    GuardService.prototype.canActivate = function (route, state) {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        this.router.navigate([''], { queryParams: { returnUrl: state.url } });
+        return false;
     };
-    AppComponent.prototype.changeAdmin = function () {
-        this.isAdmin = !(this.isAdmin);
-    };
-    AppComponent.prototype.setTitle = function () {
-    };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: '/partial/appComponent'
-        }),
-        __metadata("design:paramtypes", [common_1.Location])
-    ], AppComponent);
-    return AppComponent;
+    GuardService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [router_1.Router])
+    ], GuardService);
+    return GuardService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.GuardService = GuardService;
+//# sourceMappingURL=guard.service.js.map

@@ -1,5 +1,5 @@
 ﻿
-<div class="navbar navbar-inverse navbar-fixed-top" >
+<div class="navbar navbar-inverse navbar-fixed-top" *ngIf ="!isAdmin">
     <div class="container">
         <div class="navbar-header" (click)="setTitle('Home - AngularSpa')">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -19,16 +19,35 @@
                     <a class="nav-link"  routerLink="/login">Login</a>
                 </li>
                 <li>
-                    <a class="nav-link"  routerLink="/register">Register</a>
+                    <a class="nav-link"  routerLink="/userlist">Register</a>
                 </li>
                 <li>
-                    <a class="nav-link" (click) ="changeNoAdmin()" routerLink="/admin">AdminPanel</a>
+                    <a class="nav-link"  (click)="changeAdmin()" routerLink="/blank">AdminPanel</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
+<div class="container-fluid" *ngIf="isAdmin">
+    <div class="row">
+        <nav class="col-sm-3  bg-light sidebar">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/users">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/users">Content</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Fees</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 <div class="container body-content">
     <router-outlet></router-outlet>
 </div>

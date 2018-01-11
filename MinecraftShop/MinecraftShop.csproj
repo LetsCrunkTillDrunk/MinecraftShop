@@ -8,6 +8,9 @@
   <ItemGroup>
     <Content Remove="wwwroot\app\admin.component.ts" />
     <Content Remove="wwwroot\app\app.routing.ts" />
+    <Content Remove="wwwroot\app\auth.service.ts" />
+    <Content Remove="wwwroot\app\blank.component.ts" />
+    <Content Remove="wwwroot\app\guard.service.ts" />
     <Content Remove="wwwroot\app\login.component.ts" />
     <Content Remove="wwwroot\app\main.component.ts" />
     <Content Remove="wwwroot\app\panel.component.ts" />
@@ -15,6 +18,7 @@
     <Content Remove="wwwroot\app\rxjs-operators.ts" />
     <Content Remove="wwwroot\app\user.models.ts" />
     <Content Remove="wwwroot\app\user.services.ts" />
+    <Content Remove="wwwroot\app\userlist.component.ts" />
     <Content Remove="wwwroot\app\values.services.ts" />
   </ItemGroup>
 
@@ -39,6 +43,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\app\admin.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.routing.ts" />
+    <TypeScriptCompile Include="wwwroot\app\auth.service.ts" />
+    <TypeScriptCompile Include="wwwroot\app\blank.component.ts" />
+    <TypeScriptCompile Include="wwwroot\app\guard.service.ts" />
     <TypeScriptCompile Include="wwwroot\app\main.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\login.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\panel.component.ts" />
@@ -46,6 +53,7 @@
     <TypeScriptCompile Include="wwwroot\app\rxjs-operators.ts" />
     <TypeScriptCompile Include="wwwroot\app\user.models.ts" />
     <TypeScriptCompile Include="wwwroot\app\user.services.ts" />
+    <TypeScriptCompile Include="wwwroot\app\userlist.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\values.services.ts" />
   </ItemGroup>
 

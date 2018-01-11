@@ -11,27 +11,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_services_1 = require("./user.services");
-var LoginComponent = /** @class */ (function () {
-    function LoginComponent(service) {
+var user_models_1 = require("./user.models");
+var UserListComponent = /** @class */ (function () {
+    function UserListComponent(service) {
         this.service = service;
-        this.currentUser = null;
+        this.users = [];
+        this.user = new user_models_1.User();
     }
-    LoginComponent.prototype.login = function (event) {
-        var _this = this;
-        event.preventDefault();
-        if (!this.currentUser)
-            return;
-        this.service.addUser(this.currentUser)
-            .subscribe(function (data) { return _this.currentUser = data; }, function (error) { return _this.errorMessage = error; });
+    UserListComponent.prototype.ngOnInit = function () {
+        this.getUsers();
     };
-    LoginComponent = __decorate([
+    UserListComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.service.getAllUsers()
+            .subscribe(function (data) { _this.users = data, console.log(_this.users); }, function (error) { return _this.errorMessage = error; });
+    };
+    UserListComponent.prototype.deleteUser = function (id) {
+        var _this = this;
+        console.log(id);
+        this.service.deleteUser(id)
+            .subscribe(function () { return _this.getUsers(); });
+    };
+    UserListComponent = __decorate([
         core_1.Component({
-            selector: 'my-login',
-            templateUrl: '/partial/loginComponent'
+            selector: 'userlist',
+            templateUrl: '/partial/userListComponent'
         }),
         __metadata("design:paramtypes", [user_services_1.UserService])
-    ], LoginComponent);
-    return LoginComponent;
+    ], UserListComponent);
+    return UserListComponent;
 }());
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+exports.UserListComponent = UserListComponent;
+//# sourceMappingURL=userlist.component.js.map

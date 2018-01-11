@@ -40,6 +40,8 @@ namespace MinecraftShop
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
                 //DbTest.Init(db);
+                loggerFactory.AddDebug();
+                loggerFactory.AddConsole();
             }
             else
             {
@@ -59,6 +61,9 @@ namespace MinecraftShop
                 routes.MapRoute(
                 name: "default",
                 template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                name:"secondary",
+                template: "admin/{controller=Home}/{action=Admin}/{id?}");
                 routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
             });
         }

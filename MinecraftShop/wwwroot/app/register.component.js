@@ -12,26 +12,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_services_1 = require("./user.services");
 var user_models_1 = require("./user.models");
+var router_1 = require("@angular/router");
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent(service) {
+    function RegisterComponent(service, router) {
         this.service = service;
+        this.router = router;
         this.currentUser = new user_models_1.User();
         this.errorMessage = null;
+        this.loadMsg = "Cheking register information";
+        this.loading = false;
     }
     RegisterComponent.prototype.register = function (event) {
         var _this = this;
         event.preventDefault();
+        this.loading = true;
         if (!this.currentUser)
             return;
         this.service.addUser(this.currentUser)
-            .subscribe(function (user) { return _this.currentUser = user; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (data) { _this.currentUser = data; _this.router.navigate(['']); }, function (error) { return _this.errorMessage = error; });
     };
     RegisterComponent = __decorate([
         core_1.Component({
             selector: 'my-register',
             templateUrl: '/partial/registerComponent'
         }),
-        __metadata("design:paramtypes", [user_services_1.UserService])
+        __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
     ], RegisterComponent);
     return RegisterComponent;
 }());
